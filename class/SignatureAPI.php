@@ -13,7 +13,6 @@ class SignatureAPI{
         $url = BASE_URL.'upload';
 
         $headers = array(
-            'Content-Type: application/json',
             'Token: ' . $this->token
         );
 
@@ -26,6 +25,8 @@ class SignatureAPI{
                 'content' => $content
             )
         ));
+
+        // die(var_dump($url));
 
         $response = file_get_contents($url, false, $context);
 

@@ -1,0 +1,11 @@
+Options -indexes
+
+RewriteEngine On
+
+RewriteBase /api
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-l
+
+RewriteRule ^(.*)$ api.php/?url=$1 [NC,L]
