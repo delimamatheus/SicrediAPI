@@ -35,6 +35,52 @@ class SignatureAPI{
         }
 
         return $response;
-        
+    }
+
+    public function create($requestData){
+        $url = BASE_URL.'create';
+
+        $headers = array( 
+            'Token: ' . $this->token
+        );
+
+        $context = stream_context_create(array(
+            'http' => array(
+                'method' => 'POST',
+                'header' => implode('\r\n', $headers),
+                'content' => json_encode($requestData)
+            )
+        ));
+
+        $response = file_get_contents($url, false, $context);
+
+        if ($response === false){
+            throw new Exception('Requisition error: ' . error_get_last()['message']);
+        }
+
+        return $response;
+    }
+
+    public function download($key, $includeOriginal, $includeManifest, $zipped){
+        $url = BASE_URL.'package?key='.$key.'&includeOriginal='.$includeOriginal.'&includeManifest='.$includeManifest.'&zipped='.$zipped;
+
+        $headers = array( 
+            'Token: ' . $this->token
+        );
+
+        $context = stream_context_create(array(
+            'http' => array(
+                'method' => 'GET',
+                'header' => implode('\r\n', $headers),
+            )
+        ));
+
+        $response = file_get_contents($url, false, $context);
+
+        if ($response === false){
+            throw new Exception('Requisition error: ' . error_get_last()['message']);
+        }
+
+        return $response;
     }
 }
