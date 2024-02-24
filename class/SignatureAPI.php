@@ -17,8 +17,6 @@ class SignatureAPI{
             'Token: ' . $this->token
         );
 
-        // die(var_dump($headers));
-
         $content = file_get_contents($json);
 
         $context = stream_context_create(array(
@@ -28,8 +26,6 @@ class SignatureAPI{
                 'content' => $content
             )
         ));
-
-        // die(var_dump($url));
 
         $response = file_get_contents($url, false, $context);
 
@@ -43,14 +39,11 @@ class SignatureAPI{
     public function create($requestData){
         $url = BASE_URL.'create';
 
-        // die(var_dump($requestData));
-
         $headers = array(            
             'Content-Type: application/json',
             'Token: ' . $this->token,        
         );
-        
-        // die(var_dump($context));
+
         $options = array(
             'http' => array(
                 'header' => $headers,
@@ -59,8 +52,6 @@ class SignatureAPI{
                 'ignore_errors' => true
             ),
         );
-
-        // die(var_dump($options));
 
         $context = stream_context_create($options);
 

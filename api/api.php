@@ -1,5 +1,6 @@
 <?php
 
+require_once '../constant/Constant.php';
 require_once '../class/SignatureAPI.php';
 require_once '../controller/UploadController.php';
 require_once '../controller/CreateController.php';
@@ -18,8 +19,6 @@ switch($action){
         break;
     case 'create':
         $requestData = file_get_contents('php://input');
-
-        // die(var_dump($requestData));
 
         if(!empty($requestData)){
             $createController = new CreateController($token);
@@ -56,8 +55,7 @@ switch($action){
             }            
         }else{
             echo 'Error sending params';
-        }
-        
+        }        
         break;
     default:
         break;

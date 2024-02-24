@@ -14,7 +14,7 @@ class DownloadController {
             $response = $this->signatureAPI->download($key, $includeOriginal, $includeManifest, $zipped);
             return $response;
         }catch(Exception $e){
-            throw new Exception('Error creating document: ' . $e->getMessage());
+            throw new Exception('Error downloading document: ' . $e->getMessage());
         }
     }
 

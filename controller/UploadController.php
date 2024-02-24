@@ -24,7 +24,7 @@ class UploadController {
             }
         } catch (Exception $e) {
             http_response_code(500);
-            echo json_encode(array('Error'=> 'Internal server error!'));
+            echo json_encode(array('Error'=> 'Internal server error!' . $e->getMessage()));
         }
     }
 
