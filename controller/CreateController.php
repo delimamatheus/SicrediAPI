@@ -9,7 +9,7 @@ class CreateController {
         $this->signatureAPI = new SignatureAPI($token);
     }
 
-    public function createDocument($requestData){
+    public function createDocument($requestData){        
         try{
             $response = $this->signatureAPI->create($requestData);
             return $response;

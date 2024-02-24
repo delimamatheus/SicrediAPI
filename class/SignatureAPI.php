@@ -13,15 +13,18 @@ class SignatureAPI{
         $url = BASE_URL.'upload';
 
         $headers = array(
+            'Content-Type: application/json',
             'Token: ' . $this->token
         );
+
+        // die(var_dump($headers));
 
         $content = file_get_contents($json);
 
         $context = stream_context_create(array(
             'http' => array(
                 'method' => 'POST',
-                'header' => implode('\r\n', $headers),
+                'header' => $headers,
                 'content' => $content
             )
         ));
@@ -40,17 +43,26 @@ class SignatureAPI{
     public function create($requestData){
         $url = BASE_URL.'create';
 
-        $headers = array( 
-            'Token: ' . $this->token
+        // die(var_dump($requestData));
+
+        $headers = array(            
+            'Content-Type: application/json',
+            'Token: ' . $this->token,        
+        );
+        
+        // die(var_dump($context));
+        $options = array(
+            'http' => array(
+                'header' => $headers,
+                'method' => 'POST',
+                'content' => $requestData,
+                'ignore_errors' => true
+            ),
         );
 
-        $context = stream_context_create(array(
-            'http' => array(
-                'method' => 'POST',
-                'header' => implode('\r\n', $headers),
-                'content' => json_encode($requestData)
-            )
-        ));
+        // die(var_dump($options));
+
+        $context = stream_context_create($options);
 
         $response = file_get_contents($url, false, $context);
 
