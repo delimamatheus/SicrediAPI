@@ -17,7 +17,7 @@ Tabela de conteúdos
    * [Funcionalidades](#funcionalidades)
    * [Como executar o projeto](#-como-executar-o-projeto)
      * [Pré-requisitos](#pré-requisitos)
-   * [Insomnia](configuração-do-insomnia).
+   * [Insomnia](configuração-do-insomnia)
    * [Tecnologias](#-tecnologias)
    * [Autor](#-autor)
 <!--te-->
