@@ -76,6 +76,7 @@ Exemplo de Body.
 ![image](https://github.com/delimamatheus/SicrediAPI/assets/43099410/14b7d2d9-f68f-4cef-9aeb-d19dc21c79fc)
 
 Exemplo de Retorno.
+
 ![image](https://github.com/delimamatheus/SicrediAPI/assets/43099410/cfff19e8-67c6-4d1a-aac1-5a5b75d3428f)
 
 #### CREATE
